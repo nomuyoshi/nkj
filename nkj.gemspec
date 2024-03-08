@@ -1,21 +1,21 @@
 # frozen_string_literal: true
 
-require_relative "lib/nkj/version"
+require_relative 'lib/nkj/version'
 
 Gem::Specification.new do |spec|
-  spec.name = "nkj"
+  spec.name = 'nkj'
   spec.version = Nkj::VERSION
-  spec.authors = ["nomuyoshi"]
+  spec.authors = ['nomuyoshi']
 
-  spec.summary = "NKJ is a library for identifying JIS X 0213 characters."
-  spec.description = "NKJ is a library for identifying JIS X 0213 characters."
-  spec.homepage = "https://github.com/nomuyoshi/nkj"
-  spec.license = "MIT"
-  spec.required_ruby_version = ">= 3.0.0"
+  spec.summary = 'NKJ is a library for identifying JIS X 0213 characters.'
+  spec.description = 'NKJ is a library for identifying JIS X 0213 characters.'
+  spec.homepage = 'https://github.com/nomuyoshi/nkj'
+  spec.license = 'MIT'
+  spec.required_ruby_version = '>= 3.0.0'
 
-  spec.metadata["homepage_uri"] = "https://github.com/nomuyoshi/nkj"
-  spec.metadata["source_code_uri"] = "https://github.com/nomuyoshi/nkj"
-  spec.metadata["changelog_uri"] = "https://github.com/nomuyoshi/nkj/CHANGELOG.md"
+  spec.metadata['homepage_uri'] = 'https://github.com/nomuyoshi/nkj'
+  spec.metadata['source_code_uri'] = 'https://github.com/nomuyoshi/nkj'
+  spec.metadata['changelog_uri'] = 'https://github.com/nomuyoshi/nkj/CHANGELOG.md'
 
   # Specify which files should be added to the gem when it is released.
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
@@ -25,9 +25,9 @@ Gem::Specification.new do |spec|
         f.start_with?(*%w[bin/ test/ spec/ features/ .git appveyor Gemfile])
     end
   end
-  spec.bindir = "exe"
+  spec.bindir = 'exe'
   spec.executables = spec.files.grep(%r{\Aexe/}) { |f| File.basename(f) }
-  spec.require_paths = ["lib"]
+  spec.require_paths = ['lib']
 
   # Uncomment to register a new dependency of your gem
   # spec.add_dependency "example-gem", "~> 1.0"
