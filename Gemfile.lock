@@ -2,11 +2,13 @@ PATH
   remote: .
   specs:
     nkj (0.1.0)
+      csv (>= 3.0.0)
 
 GEM
   remote: https://rubygems.org/
   specs:
     ast (2.4.2)
+    csv (3.2.8)
     diff-lcs (1.5.1)
     json (2.7.1)
     language_server-protocol (3.17.0.3)
