@@ -2,6 +2,7 @@
 
 require 'csv'
 require_relative 'nkj/version'
+require_relative 'nkj/range_table'
 
 module NKJ
   class Error < StandardError; end
@@ -10,6 +11,50 @@ module NKJ
       encode(str).each_grapheme_cluster do |char|
         cp = 'U+' + char.codepoints.map { |p| format('%04X', p) }.join('+')
         return false if mapping[cp].nil?
+      end
+
+      true
+    end
+
+    def level1?(str)
+      level1_range_table = RangeTable.new((0x3021..0x4F53))
+      encode(str).each_grapheme_cluster do |char|
+        cp = 'U+' + char.codepoints.map { |p| format('%04X', p) }.join('+')
+        return false unless level1_range_table.include?(mapping[cp])
+      end
+
+      true
+    end
+
+    def level2?(str)
+      level2_range_table = RangeTable.new((0x5021..0x7426))
+      encode(str).each_grapheme_cluster do |char|
+        cp = 'U+' + char.codepoints.map { |p| format('%04X', p) }.join('+')
+        return false unless level2_range_table.include?(mapping[cp])
+      end
+
+      true
+    end
+
+    def level3?(str)
+      level3_range_table = RangeTable.new(
+        (0x2E21..0x2F7E),
+        (0x4F54..0x4F7E),
+        (0x7427..0x7E7E)
+      )
+      encode(str).each_grapheme_cluster do |char|
+        cp = 'U+' + char.codepoints.map { |p| format('%04X', p) }.join('+')
+        return false unless level3_range_table.include?(mapping[cp])
+      end
+
+      true
+    end
+
+    def level4?(str)
+      level4_range_table = RangeTable.new((0xA1A1..0xFEF6))
+      encode(str).each_grapheme_cluster do |char|
+        cp = 'U+' + char.codepoints.map { |p| format('%04X', p) }.join('+')
+        return false unless level4_range_table.include?(mapping[cp])
       end
 
       true
