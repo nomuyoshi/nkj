@@ -51,10 +51,10 @@ RSpec.describe NKJ do
     context 'kanji outside of the first level' do
       it 'returns false' do
         aggregate_failures do
-          expect(NKJ.level1?('丼')).to eq(false) # 第二水準
-          expect(NKJ.level1?('﨑')).to eq(false) # 第三水準
-          expect(NKJ.level1?('挻')).to eq(false) # 第四水準
-          expect(NKJ.level1?('髙')).to eq(false) # JIS X 0213に存在しない
+          expect(NKJ.level1?('丼')).to eq(false) # level2 kanji
+          expect(NKJ.level1?('﨑')).to eq(false) # level3 kanji
+          expect(NKJ.level1?('挻')).to eq(false) # level4 kanji
+          expect(NKJ.level1?('髙')).to eq(false) # not JIS X 0213
         end
       end
     end
@@ -78,10 +78,10 @@ RSpec.describe NKJ do
     context 'kanji outside of the second level' do
       it 'returns false' do
         aggregate_failures do
-          expect(NKJ.level2?('腕')).to eq(false) # 第一水準
-          expect(NKJ.level2?('﨑')).to eq(false) # 第三水準
-          expect(NKJ.level2?('挻')).to eq(false) # 第四水準
-          expect(NKJ.level2?('髙')).to eq(false) # JIS X 0213に存在しない
+          expect(NKJ.level2?('腕')).to eq(false) # level1 kanji
+          expect(NKJ.level2?('﨑')).to eq(false) # level3 kanji
+          expect(NKJ.level2?('挻')).to eq(false) # level4 kanji
+          expect(NKJ.level2?('髙')).to eq(false) # not JIS X 0213
         end
       end
     end
@@ -105,10 +105,10 @@ RSpec.describe NKJ do
     context 'kanji outside of the third level' do
       it 'returns false' do
         aggregate_failures do
-          expect(NKJ.level3?('腕')).to eq(false) # 第一水準
-          expect(NKJ.level3?('丼')).to eq(false) # 第二水準
-          expect(NKJ.level3?('挻')).to eq(false) # 第四水準
-          expect(NKJ.level3?('髙')).to eq(false) # JIS X 0213に存在しない
+          expect(NKJ.level3?('腕')).to eq(false) # level1 kanji
+          expect(NKJ.level3?('丼')).to eq(false) # level2 kanji
+          expect(NKJ.level3?('挻')).to eq(false) # level4 kanji
+          expect(NKJ.level3?('髙')).to eq(false) # not JIS X 0213
         end
       end
     end
@@ -132,10 +132,10 @@ RSpec.describe NKJ do
     context 'kanji outside of the fourth level' do
       it 'returns false' do
         aggregate_failures do
-          expect(NKJ.level4?('腕')).to eq(false) # 第一水準
-          expect(NKJ.level4?('丼')).to eq(false) # 第二水準
-          expect(NKJ.level1?('﨑')).to eq(false) # 第三水準
-          expect(NKJ.level4?('髙')).to eq(false) # JIS X 0213に存在しない
+          expect(NKJ.level4?('腕')).to eq(false) # level1 kanji
+          expect(NKJ.level4?('丼')).to eq(false) # level2 kanji
+          expect(NKJ.level1?('﨑')).to eq(false) # level3 kanji
+          expect(NKJ.level4?('髙')).to eq(false) # not JIS X 0213
         end
       end
     end

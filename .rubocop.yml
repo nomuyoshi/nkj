@@ -1,5 +1,34 @@
 AllCops:
   NewCops: enable
+  EnabledByDefault: true
+  SuggestExtensions: false
+  Exclude:
+    - "nkj.gemspec"
+Bundler/GemComment:
+  Enabled: false
+Bundler/GemVersion:
+  Enabled: false
+Lint/ConstantResolution:
+  Enabled: false
+Layout/SingleLineBlockChain:
+  Enabled: false
+Style/Documentation:
+  Enabled: false
+Style/ArrayFirstLast:
+  Enabled: false
+Style/DocumentationMethod:
+  Enabled: false
+Style/InlineComment:
+  Enabled: false
+Style/Copyright:
+  Enabled: false
+Style/ConstantVisibility:
+  Enabled: false
+Style/RequireOrder:
+  Enabled: false
+Style/MethodCallWithArgsParentheses:
+  Exclude:
+    - "spec/**/*"
 Metrics/BlockLength:
   Exclude:
     - "spec/**/*"
