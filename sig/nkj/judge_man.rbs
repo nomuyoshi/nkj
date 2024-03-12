@@ -1,7 +1,0 @@
-module NKJ
-  class JudgeMan
-    private
-
-    def self.encode: -> string
-  end
-end
