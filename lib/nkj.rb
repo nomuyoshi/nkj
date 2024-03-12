@@ -10,7 +10,7 @@ module NKJ
   class << self
     def jisx0213?(str)
       each_grapheme_codepoint(encode(str)) do |cp|
-        return false if Unicode2JISMapping.exists?(cp)
+        return false unless Unicode2JISMapping.exists?(cp)
       end
 
       true
