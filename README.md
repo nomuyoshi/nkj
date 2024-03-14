@@ -1,39 +1,46 @@
-# Nkj
-
-TODO: Delete this and the text below, and describe your gem
-
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/nkj`. To experiment with that code, run `bin/console` for an interactive prompt.
+# NKJ
+NKJ can judge given chars are included in JIS X 0213 or not.
 
 ## Installation
+Add this line to your application's Gemfile:
 
-TODO: Replace `UPDATE_WITH_YOUR_GEM_NAME_IMMEDIATELY_AFTER_RELEASE_TO_RUBYGEMS_ORG` with your gem name right after releasing it to RubyGems.org. Please do not do it earlier due to security reasons. Alternatively, replace this section with instructions to install your gem from git if you don't plan to release to RubyGems.org.
+```ruby
+gem 'nkj'
+```
 
-Install the gem and add to the application's Gemfile by executing:
+Or install it yourself as: 
 
-    $ bundle add UPDATE_WITH_YOUR_GEM_NAME_IMMEDIATELY_AFTER_RELEASE_TO_RUBYGEMS_ORG
-
-If bundler is not being used to manage dependencies, install the gem by executing:
-
-    $ gem install UPDATE_WITH_YOUR_GEM_NAME_IMMEDIATELY_AFTER_RELEASE_TO_RUBYGEMS_ORG
+```
+gem install nkj
+```
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+require 'nkj'
 
-## Development
+# `jisx0213?` returns a boolean value whether or not the given all chars are included in JIS X 0213.
+NKJ.jisx0213?('aあ!庵') #=> true
+NKJ.jisx0213?('髙') #=> false
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+# `level1?` returns whether or not the given all chars are included Japanse Level1 Kanji.(第一水準)
+NKJ.level1?('山') #=> true
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and the created tag, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+# `level2?` returns whether or not the given all chars are included Japanse Level2 Kanji.(第二水準)
+NKJ.level2?('丼') #=> true
 
-## Contributing
+# `level3?` returns whether or not the given all chars are included Japanse Level3 Kanji.(第三水準)
+NKJ.level3?('﨑') #=> true
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/nkj. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/[USERNAME]/nkj/blob/main/CODE_OF_CONDUCT.md).
+# `level4?` returns whether or not the given all chars are included Japanse Level4 Kanji.(第四水準)
+NKJ.level4?('挻') #=> true
+```
 
 ## License
 
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
 
-## Code of Conduct
 
-Everyone interacting in the Nkj project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/nkj/blob/main/CODE_OF_CONDUCT.md).
+## Special Thanks
+NKJ uses "JIS X 0213 Code Mapping Tables" which created by Project X0213.
+https://x0213.org/codetable/index.en.html
